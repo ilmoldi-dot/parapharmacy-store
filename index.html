@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4CAF50">
+    <title>شبه صيدلية صابر عبد الكريم - منتجات صيدلانية وعناية شخصية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                    <h1>شبه صيدلية صابر عبد الكريم</h1>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" class="active"><i class="fas fa-home"></i> الرئيسية</a>
+                    <a href="#products"><i class="fas fa-capsules"></i> المنتجات</a>
+                    <a href="#categories"><i class="fas fa-list"></i> الفئات</a>
+                    <a href="#cart"><i class="fas fa-shopping-cart"></i> السلة (<span id="cartCount">0</span>)</a>
+                    <a href="#contact"><i class="fas fa-phone-alt"></i> اتصل بنا</a>
+                    <a href="#admin"><i class="fas fa-user-cog"></i> إدارة المنتجات</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <main>
+        <!-- قسم الترحيب -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>مرحبًا بكم في شبه صيدلية صابر عبد الكريم</h2>
+                <p>نقدم لكم مجموعة متنوعة من المنتجات الشبه صيدلانية والعناية الشخصية بأسعار تنافسية</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> اتصل بنا: <strong>0674086646</strong></p>
+                    <a href="https://wa.me/213674086646?text=مرحبًا، أريد الاستفسار عن منتجاتكم" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> طلب عبر واتساب
+                    </a>
+                </div>
+                <div class="notice">
+                    <p><i class="fas fa-info-circle"></i> ملاحظة: الأسعار المعروضة دون تكاليف التوصيل - الاستلام من المتجر فقط</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الفئات -->
+        <section id="categories" class="categories">
+            <h2><i class="fas fa-tags"></i> فئات المنتجات</h2>
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">الكل</button>
+                <button class="category-btn" data-category="vitamins">فيتامينات</button>
+                <button class="category-btn" data-category="skincare">عناية البشرة</button>
+                <button class="category-btn" data-category="oral">فراشات الأسنان والعناية بالفم</button>
+                <button class="category-btn" data-category="baby">حفاضات وعناية الأطفال</button>
+                <button class="category-btn" data-category="hair">العناية بالشعر</button>
+                <button class="category-btn" data-category="personal">العناية الشخصية</button>
+                <button class="category-btn" data-category="medical">مستلزمات طبية</button>
+            </div>
+        </section>
+
+        <!-- قسم عرض المنتجات -->
+        <section id="products" class="products">
+            <h2><i class="fas fa-boxes"></i> منتجاتنا</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="products-container" id="productsContainer">
+                <!-- سيتم ملء المنتجات بواسطة JavaScript -->
+            </div>
+            <div class="pagination" id="pagination">
+                <!-- سيتم إنشاء أزرار الترقيم بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <!-- قسم سلة التسوق -->
+        <section id="cart" class="cart">
+            <h2><i class="fas fa-shopping-cart"></i> سلة التسوق</h2>
+            <div class="cart-container">
+                <div class="cart-items" id="cartItems">
+                    <!-- سيتم ملء عناصر السلة بواسطة JavaScript -->
+                    <p class="empty-cart">سلة التسوق فارغة</p>
+                </div>
+                <div class="cart-summary">
+                    <h3>ملخص الطلب</h3>
+                    <div class="summary-details">
+                        <p>عدد المنتجات: <span id="totalItems">0</span></p>
+                        <p>المجموع: <span id="totalPrice">0.00</span> دج</p>
+                        <p class="delivery-notice">* لا تشمل السعر تكاليف التوصيل</p>
+                    </div>
+                    <button class="checkout-btn" id="checkoutBtn">
+                        <i class="fab fa-whatsapp"></i> إتمام الطلب عبر واتساب
+                    </button>
+                    <button class="clear-cart-btn" id="clearCartBtn">
+                        <i class="fas fa-trash"></i> إفراغ السلة
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم إدارة المنتجات (للصيدلي) -->
+        <section id="admin" class="admin-panel">
+            <h2><i class="fas fa-user-cog"></i> لوحة إدارة المنتجات</h2>
+            <div class="admin-container">
+                <div class="admin-form">
+                    <h3>إضافة منتج جديد</h3>
+                    <form id="addProductForm">
+                        <div class="form-group">
+                            <label for="productName">اسم المنتج:</label>
+                            <input type="text" id="productName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productCategory">الفئة:</label>
+                            <select id="productCategory" required>
+                                <option value="vitamins">فيتامينات</option>
+                                <option value="skincare">عناية البشرة</option>
+                                <option value="oral">فراشات الأسنان والعناية بالفم</option>
+                                <option value="baby">حفاضات وعناية الأطفال</option>
+                                <option value="hair">العناية بالشعر</option>
+                                <option value="personal">العناية الشخصية</option>
+                                <option value="medical">مستلزمات طبية</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">السعر (دج):</label>
+                            <input type="number" id="productPrice" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productImage">رابط الصورة:</label>
+                            <input type="url" id="productImage" placeholder="https://example.com/image.jpg" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription">الوصف:</label>
+                            <textarea id="productDescription" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-plus"></i> إضافة المنتج
+                        </button>
+                    </form>
+                </div>
+                <div class="admin-products">
+                    <h3>المنتجات المضافة</h3>
+                    <div class="admin-products-list" id="adminProductsList">
+                        <!-- سيتم ملء المنتجات المضافة بواسطة JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الاتصال -->
+        <section id="contact" class="contact">
+            <h2><i class="fas fa-phone-alt"></i> اتصل بنا</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>شبه صيدلية صابر عبد الكريم</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> الجزائر</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: <strong>0674086646</strong></p>
+                    <p><i class="fas fa-clock"></i> ساعات العمل: يوميًا من 8:00 صباحًا إلى 10:00 مساءً</p>
+                    <div class="whatsapp-contact">
+                        <a href="https://wa.me/213674086646?text=مرحبًا، أريد الاستفسار عن منتجاتكم" class="whatsapp-btn-large" target="_blank">
+                            <i class="fab fa-whatsapp"></i> تواصل معنا عبر واتساب
+                        </a>
+                    </div>
+                </div>
+                <div class="install-app">
+                    <h3>تثبيت التطبيق</h3>
+                    <p>يمكنك تثبيت هذه الصفحة كتطبيق على هاتفك:</p>
+                    <ol>
+                        <li>افتح المتصفح (Chrome أو Safari)</li>
+                        <li>اضغط على زر القائمة (النقاط الثلاث أو مشاركة)</li>
+                        <li>اختر "إضافة إلى الشاشة الرئيسية" أو "تثبيت التطبيق"</li>
+                    </ol>
+                    <button id="installBtn" class="install-btn">
+                        <i class="fas fa-download"></i> تثبيت التطبيق
+                    </button>
+                    <p class="app-notice">* التطبيق يعمل بدون إنترنت بعد التثبيت</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-prescription-bottle-alt"></i>
+                <h3>شبه صيدلية صابر عبد الكريم</h3>
+                <p>منتجات صيدلانية وعناية شخصية بجودة عالية</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">الرئيسية</a>
+                <a href="#products">المنتجات</a>
+                <a href="#contact">اتصل بنا</a>
+                <a href="#admin">إدارة المنتجات</a>
+            </div>
+            <div class="footer-contact">
+                <p><i class="fas fa-phone"></i> 0674086646</p>
+                <p><i class="fas fa-map-marker-alt"></i> الجزائر</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/213674086646" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="tel:0674086646"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 شبه صيدلية صابر عبد الكريم. جميع الحقوق محفوظة.</p>
+            <p>الأسعار لا تشمل تكاليف التوصيل - الاستلام من المتجر فقط</p>
+        </div>
+    </footer>
+
+    <!-- زر التثبيت -->
+    <div id="installPrompt" class="install-prompt">
+        <p>تثبيت تطبيق "شبه صيدلية صابر عبد الكريم" على جهازك</p>
+        <button id="installPromptBtn">تثبيت</button>
+        <button id="installCancelBtn">لاحقًا</button>
+    </div>
+
+    <!-- السكريبتات -->
+    <script src="script.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
